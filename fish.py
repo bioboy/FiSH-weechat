@@ -509,7 +509,7 @@ def fish_modifier_in_notice_cb(data, modifier, server_name, string):
     if match.group(3) != weechat.info_get("irc_nick", server_name):
         return string
 
-    target = "%s/%s" % (server_name, match.group(2))
+    target = ("%s/%s" % (server_name, match.group(2))).lower()
     buffer = weechat.info_get("irc_buffer", "%s,%s" % (
             server_name, match.group(2)))
 
@@ -591,7 +591,7 @@ def fish_modifier_in_privmsg_cb(data, modifier, server_name, string):
         dest = match.group(2)
     else:
         dest = match.group(3)
-    target = "%s/%s" % (server_name, dest)
+    target = ("%s/%s" % (server_name, dest)).lower()
     buffer = weechat.info_get("irc_buffer", "%s,%s" % (server_name, dest))
 
     if not match.group(6):
@@ -631,7 +631,7 @@ def fish_modifier_in_topic_cb(data, modifier, server_name, string):
     if not match:
         return string
 
-    target = "%s/%s" % (server_name, match.group(2))
+    target = ("%s/%s" % (server_name, match.group(2))).lower()
     buffer = weechat.info_get("irc_buffer", "%s,%s" % (server_name,
             match.group(2)))
 
@@ -659,7 +659,7 @@ def fish_modifier_in_332_cb(data, modifier, server_name, string):
     if not match:
         return string
 
-    target = "%s/%s" % (server_name, match.group(2))
+    target = ("%s/%s" % (server_name, match.group(2))).lower()
     buffer = weechat.info_get("irc_buffer", "%s,%s" % (server_name,
             match.group(2)))
 
@@ -688,7 +688,7 @@ def fish_modifier_out_privmsg_cb(data, modifier, server_name, string):
     if not match:
         return string
 
-    target = "%s/%s" % (server_name, match.group(2))
+    target = ("%s/%s" % (server_name, match.group(2))).lower()
     buffer = weechat.info_get("irc_buffer", "%s,%s" % (server_name,
             match.group(2)))
 
@@ -718,7 +718,7 @@ def fish_modifier_out_topic_cb(data, modifier, server_name, string):
     if not match.group(3):
         return string
 
-    target = "%s/%s" % (server_name, match.group(2))
+    target = ("%s/%s" % (server_name, match.group(2))).lower()
     buffer = weechat.info_get("irc_buffer", "%s,%s" % (server_name,
             match.group(2)))
 
@@ -787,7 +787,7 @@ def fish_cmd_blowkey(data, buffer, args):
         if pos:
             argv2eol = args[pos + 1:]
 
-    target = "%s/%s" % (server_name, target_user)
+    target = ("%s/%s" % (server_name, target_user)).lower()
 
     if argv[0] == "set":
         fish_keys[target] = argv2eol
