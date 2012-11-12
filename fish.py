@@ -80,7 +80,7 @@ except ImportError:
 try:
     bfLib = cdll.LoadLibrary(path.join(path.dirname(__file__), 
                           'blowfish.so'))
-except IOSError:
+except OSError:
     print "blowfish.so is missing."
     print "Compile it and place it in the same directory as this script."
     import_ok = False
