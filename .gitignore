@@ -15,3 +15,7 @@
 *.exe
 *.out
 *.app
+
+# Python bye compiled files
+*.pyc
+
